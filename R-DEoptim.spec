@@ -4,7 +4,7 @@
 #
 Name     : R-DEoptim
 Version  : 2.2.4
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/DEoptim_2.2-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DEoptim_2.2-4.tar.gz
 Summary  : Global Optimization by Differential Evolution
