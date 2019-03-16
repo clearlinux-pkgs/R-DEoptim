@@ -4,16 +4,16 @@
 #
 Name     : R-DEoptim
 Version  : 2.2.4
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/DEoptim_2.2-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DEoptim_2.2-4.tar.gz
 Summary  : Global Optimization by Differential Evolution
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-DEoptim-lib
+Requires: R-DEoptim-lib = %{version}-%{release}
 Requires: R-colorspace
 BuildRequires : R-colorspace
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 DEoptim is an R implementation of the Differential Evolution
@@ -36,11 +36,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523299707
+export SOURCE_DATE_EPOCH=1552770018
 
 %install
+export SOURCE_DATE_EPOCH=1552770018
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523299707
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -75,8 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library DEoptim|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  DEoptim || :
 
 
 %files
@@ -115,7 +114,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/DEoptim/help/paths.rds
 /usr/lib64/R/library/DEoptim/html/00Index.html
 /usr/lib64/R/library/DEoptim/html/R.css
-/usr/lib64/R/library/DEoptim/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)
